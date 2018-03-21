@@ -11,8 +11,12 @@ namespace Ffm\SmtpConfigurator\Helper;
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     const XML_PATH_SMTP_ENABLED = 'smtp/general/enabled';
+    const XML_PATH_SMTP_AUTHENTICATION = 'smtp/general/authentication';
     const XML_PATH_SMTP_HOST = 'smtp/general/host';
     const XML_PATH_SMTP_PORT = 'smtp/general/port';
+    const XML_PATH_SMTP_USERNAME = 'smtp/general/username';
+    const XML_PATH_SMTP_PASSWORD = 'smtp/general/password';
+    const XML_PATH_SMTP_SSL = 'smtp/general/ssl';
 
     /**
      * @return bool
@@ -21,6 +25,15 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
         return $this->scopeConfig->isSetFlag(self::XML_PATH_SMTP_ENABLED, $storeScope);
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfigSmtpAuthentication():string
+    {
+        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+        return $this->scopeConfig->getValue(self::XML_PATH_SMTP_AUTHENTICATION, $storeScope);
     }
 
     /**
@@ -39,5 +52,32 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
         return $this->scopeConfig->getValue(self::XML_PATH_SMTP_PORT, $storeScope);
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfigSmtpUsername():string
+    {
+        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+        return $this->scopeConfig->getValue(self::XML_PATH_SMTP_USERNAME, $storeScope);
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfigSmtpPassword():string
+    {
+        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+        return $this->scopeConfig->getValue(self::XML_PATH_SMTP_PASSWORD, $storeScope);
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfigSmtpSsl():string
+    {
+        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+        return $this->scopeConfig->getValue(self::XML_PATH_SMTP_SSL, $storeScope);
     }
 }
