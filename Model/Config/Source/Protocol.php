@@ -8,22 +8,22 @@ namespace Ffm\SmtpConfigurator\Model\Config\Source;
 /**
  * Source model for element with smtp ssl variants.
  */
-class Ssl implements \Magento\Framework\Option\ArrayInterface
+class Protocol implements \Magento\Framework\Option\ArrayInterface
 {
     /**
      * Value for none
      */
-    const SSL_NONE = '';
+    const PROTOCOL_NONE = '';
 
     /**
      * Value for SSL type
      */
-    const SSL_SSL = 'SSL';
+    const PROTOCOL_SSL = 'SSL';
 
     /**
      * Value for TLS type
      */
-    const SSL_TLS = 'tls';
+    const PROTOCOL_TLS = 'tls';
 
     /**
      * @return array
@@ -31,9 +31,9 @@ class Ssl implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => self::SSL_NONE, 'label' => __('None')],
-            ['value' => self::SSL_SSL, 'label' => __('SSL')],
-            ['value' => self::SSL_TLS, 'label' => __('TLS')],
+            ['value' => self::PROTOCOL_NONE, 'label' => __('None')],
+            ['value' => self::PROTOCOL_SSL, 'label' => __('SSL')],
+            ['value' => self::PROTOCOL_TLS, 'label' => __('TLS')],
         ];
     }
 }

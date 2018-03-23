@@ -33,10 +33,19 @@
                        showInWebsite="1" showInStore="0">
                     <label>Password</label>
                 </field>
-                <field id="ssl" translate="label comment" type="select" sortOrder="70" showInDefault="1"
+                <field id="protocol" translate="label comment" type="select" sortOrder="70" showInDefault="1"
                        showInWebsite="1" showInStore="0">
-                    <label>SSL</label>
-                    <source_model>Ffm\SmtpConfigurator\Model\Config\Source\Ssl</source_model>
+                    <label>Protocol</label>
+                    <source_model>Ffm\SmtpConfigurator\Model\Config\Source\Protocol</source_model>
+                </field>
+                <field id="testemail" translate="label comment" type="text" sortOrder="75" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Test email</label>
+                </field>
+                <field id="test_connect" translate="button_label" sortOrder="80" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <button_label>Test connection</button_label>
+                    <frontend_model>Ffm\SmtpConfigurator\Block\Adminhtml\System\Config\TestButton</frontend_model>
                 </field>
             </group>
         </section>

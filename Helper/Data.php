@@ -16,7 +16,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     const XML_PATH_SMTP_PORT = 'smtp/general/port';
     const XML_PATH_SMTP_USERNAME = 'smtp/general/username';
     const XML_PATH_SMTP_PASSWORD = 'smtp/general/password';
-    const XML_PATH_SMTP_SSL = 'smtp/general/ssl';
+    const XML_PATH_SMTP_PROOCOL = 'smtp/general/protocol';
+
+    const REGISTRY_KEY_MESSAGE = 'ffm_smtpconfigurator_smtp_message';
+    const REGISTRY_KEY_TESTMODE = 'ffm_smtpconfigurator_smtp_testmode';
 
     /**
      * @return bool
@@ -33,7 +36,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getConfigSmtpAuthentication():string
     {
         $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->getValue(self::XML_PATH_SMTP_AUTHENTICATION, $storeScope);
+        return (string)$this->scopeConfig->getValue(self::XML_PATH_SMTP_AUTHENTICATION, $storeScope);
     }
 
     /**
@@ -42,7 +45,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getConfigSmtpHost():string
     {
         $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->getValue(self::XML_PATH_SMTP_HOST, $storeScope);
+        return (string)$this->scopeConfig->getValue(self::XML_PATH_SMTP_HOST, $storeScope);
     }
 
     /**
@@ -51,7 +54,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getConfigSmtpPort():string
     {
         $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->getValue(self::XML_PATH_SMTP_PORT, $storeScope);
+        return (string)$this->scopeConfig->getValue(self::XML_PATH_SMTP_PORT, $storeScope);
     }
 
     /**
@@ -60,7 +63,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getConfigSmtpUsername():string
     {
         $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->getValue(self::XML_PATH_SMTP_USERNAME, $storeScope);
+        return (string)$this->scopeConfig->getValue(self::XML_PATH_SMTP_USERNAME, $storeScope);
     }
 
     /**
@@ -69,15 +72,15 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getConfigSmtpPassword():string
     {
         $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->getValue(self::XML_PATH_SMTP_PASSWORD, $storeScope);
+        return (string)$this->scopeConfig->getValue(self::XML_PATH_SMTP_PASSWORD, $storeScope);
     }
 
     /**
      * @return string
      */
-    public function getConfigSmtpSsl():string
+    public function getConfigSmtpProtocol():string
     {
         $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->getValue(self::XML_PATH_SMTP_SSL, $storeScope);
+        return (string)$this->scopeConfig->getValue(self::XML_PATH_SMTP_PROOCOL, $storeScope);
     }
 }
