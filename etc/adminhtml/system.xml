@@ -43,6 +43,7 @@
                        showInStore="0">
                     <button_label>Test connection</button_label>
                     <frontend_model>Ffm\SmtpConfigurator\Block\Adminhtml\System\Config\TestButton</frontend_model>
+                    <comment><![CDATA[Save configuration before testing it.]]></comment>
                 </field>
             </group>
         </section>
