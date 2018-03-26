@@ -2,7 +2,6 @@
 namespace Ffm\SmtpConfigurator\Controller\Adminhtml\System\Config\Test;
 
 use Magento\Framework\Controller\Result\JsonFactory;
-use Magento\Framework\Registry;
 
 /**
  * Class Index
@@ -21,27 +20,19 @@ class Index extends \Magento\Framework\App\Action\Action
     protected $transportBuilder;
 
     /**
-     * @var Registry $registry
-     */
-    protected $registry;
-
-    /**
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder
      * @param JsonFactory $resultJsonFactory,
-     * @param Registry $registry
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder,
-        JsonFactory $resultJsonFactory,
-        Registry $registry
+        JsonFactory $resultJsonFactory
     ) {
         parent::__construct($context);
 
         $this->resultJsonFactory = $resultJsonFactory;
         $this->transportBuilder = $transportBuilder;
-        $this->registry = $registry;
     }
 
     /**
@@ -51,8 +42,6 @@ class Index extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
-        $this->registry->register(\Ffm\SmtpConfigurator\Helper\Data::REGISTRY_KEY_TESTMODE, true);
-
         $to = $this->getRequest()->getParam('testmail');
 
         /** @var \Magento\Framework\Controller\Result\Json $resultJson */

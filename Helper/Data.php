@@ -18,18 +18,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     const XML_PATH_SMTP_PASSWORD = 'smtp/general/password';
     const XML_PATH_SMTP_PROOCOL = 'smtp/general/protocol';
 
-    const REGISTRY_KEY_MESSAGE = 'ffm_smtpconfigurator_smtp_message';
-    const REGISTRY_KEY_TESTMODE = 'ffm_smtpconfigurator_smtp_testmode';
-
-    /**
-     * @return bool
-     */
-    public function getConfigSmtpEnabled():bool
-    {
-        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->isSetFlag(self::XML_PATH_SMTP_ENABLED, $storeScope);
-    }
-
     /**
      * @return string
      */
